@@ -1,0 +1,174 @@
+<html lang="es-ES">
+	<head>
+		<title>Prueba código JavaScript HTML</title>
+	
+		<style>
+			.textareacontainer, .iframecontainer {width:1024px;}
+			
+			.textarea, .iframe {height:768px;}
+			#textareaCode, 	#iframeResult {height:700px;width:1024px;}
+			.menu img {display:none;}
+			
+body {
+color:#000000;
+margin:0px;
+font-size:100%;
+}
+
+.menu {
+height:30px;
+background-color:#555555;
+color:white;
+padding-top:3px;
+padding-bottom:1px;
+font-family:verdana;
+font-size:14px;
+min-width:700px;
+}
+
+.menu span {
+margin-left:2%;
+}
+
+.menu img {
+margin-right:2%;
+float:right;
+vertical-align:top;
+}
+
+.container {
+width:100%;
+overflow:auto;
+position:absolute;
+top:50px;bottom:0;
+height:auto;min-height:250px;
+min-width:500px;
+}
+
+#textareaCode {
+font-family: consolas,"courier new",monospace;
+font-size:14px;
+height:96.5%;
+width:98%;
+border:1px solid #d3d3d3; 
+border-radius:5px;
+padding:0.5%;
+resize: none;
+}
+
+#iframeResult, #iframeSource {
+background-color: #ffffff;
+height:97%;
+width:99%;
+border:1px solid #d3d3d3;
+border-radius:5px;
+}
+
+.headerText {
+margin-top:12px;
+margin-left:3%;
+font-family:verdana;
+font-size:1em;
+}
+
+.textareacontainer, .iframecontainer {
+float:left;
+height:100%;
+width:49%;
+}
+
+.textarea, .iframe {
+position:absolute;
+top:0;bottom:0;
+width:48%;
+margin:1%;
+margin-top:0;
+background-color:#f1f1f1;
+border-radius:10px;
+height:auto;
+}
+
+.textareawrapper {
+position:absolute;
+top:38px;
+bottom:2%;
+left:2%;
+width:96.5%;
+height:auto;
+}
+
+.iframewrapper {
+position:absolute;
+top:38px;
+bottom:2%;
+left:2%;
+width:96.5%;
+height:auto;
+-webkit-overflow-scrolling: touch;
+}
+
+.submit {
+width:100px;
+font-size:15px;
+}
+		</style>
+	
+		<script>
+			function w3showit() {
+				var ifr = document.getElementById("iframeResult");
+				ifr.contentWindow.document.open('text/html','replace');
+				var text = document.getElementById("textareaCode").value;
+				ifr.contentWindow.document.write(text);
+				ifr.contentWindow.document.close();
+			}    
+		</script>
+	</head>
+	<body>
+		<div class="menu">
+			<span>Introducir el código y pulsar el botón Probar:</span>
+			<span>
+				<input class="submit" type="button" value="Probar" onclick="w3showit()">
+			</span>
+		</div>
+	
+		<div class="container">
+			<div class="textareacontainer">
+				<div class="textarea">
+					<div class="headerText">Code:</div>
+					<div class="textareawrapper">
+						<textarea autocomplete="off" class="code_input" id="textareaCode" wrap="logical" rows="30" cols="100">
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Ejemplo: al pulsar en el boton reset, se inicializan los inputs del formulario.</p>
+
+<form id="frm1">
+First name: <input type="text" name="fname"><br>
+Last name: <input type="text" name="lname"><br><br>
+<input type="button" onclick="myFunction()" value="Reset">
+</form>
+
+<script>
+function myFunction() {
+    document.getElementById("frm1").reset();
+}
+</script>
+
+</body>
+</html>
+						</textarea>
+					</div>
+				</div>
+			</div>
+			<div class="iframecontainer">
+				<div class="iframe">
+					<div class="headerText">Result:</div>
+					<div class="iframewrapper">
+						<iframe id="iframeResult" class="result_output" frameborder="0" name="view"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
